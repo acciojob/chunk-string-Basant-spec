@@ -1,12 +1,11 @@
-function chunkString(str, chunkLength) {
+function stringChop(str, size) {
     // Handle edge cases
-    if (!str || chunkLength <= 0) {
-        return [];
-    }
+    if (!str) return []; // Return an empty array if input string is null or undefined
+    if (size <= 0) return []; // Return an empty array if chunk size is invalid
 
-    const chunks = [];
-    for (let i = 0; i < str.length; i += chunkLength) {
-        chunks.push(str.slice(i, i + chunkLength));
+    let chunks = [];
+    for (let i = 0; i < str.length; i += size) {
+        chunks.push(str.slice(i, i + size));
     }
     return chunks;
 }
